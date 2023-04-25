@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TouchableOpacity } from "react-native";
 import { TextInput, Platform, View, Text } from "react-native";
 
 export function Home() {
@@ -26,9 +25,7 @@ export function Home() {
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
       {mySkills.map((skills) => (
-        <TouchableOpacity key={skills} style={styles.buttonSkills} activeOpacity={0.8}>
-          <Text style={styles.textSkills}>{skills}</Text>
-        </TouchableOpacity>
+        <Card/>
       ))}
     </View>
   );
@@ -36,6 +33,7 @@ export function Home() {
 
 import { StyleSheet } from "react-native";
 import { Button } from "../../components/Button";
+import { Card } from "../../components/Card";
 
 export const styles = StyleSheet.create({
   container: {
@@ -59,19 +57,5 @@ export const styles = StyleSheet.create({
     padding: Platform.OS === "Windows" ? 10 : 15,
     marginTop: 30,
     borderRadius: 7,
-  },
-
-  buttonSkills: {
-    backgroundColor: "#1f1325",
-    padding: 15,
-    borderRadius: 50,
-    alignItems: "center",
-    marginVertical: 10,
-  },
-
-  textSkills: {
-    color: "#FFFFFF",
-    fontSize: 22,
-    fontWeight: "bold",
   },
 });
