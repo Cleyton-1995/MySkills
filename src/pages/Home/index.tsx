@@ -14,8 +14,8 @@ export function Home() {
   function handleAddNewSkills() {
     const data = {
       id: String(new Date().getTime()),
-      name: newSkills
-    }
+      name: newSkills,
+    };
 
     setMySkills((oldState) => [...oldState, data]);
   }
@@ -45,7 +45,7 @@ export function Home() {
         onChangeText={setNewSkills}
       />
 
-      <Button onPress={handleAddNewSkills} />
+      <Button onPress={handleAddNewSkills} title="Add" />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
@@ -88,5 +88,5 @@ export const styles = StyleSheet.create({
 
   gretting: {
     color: "#fff",
-  }
+  },
 });
