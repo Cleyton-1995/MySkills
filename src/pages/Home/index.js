@@ -6,6 +6,10 @@ export function Home() {
   const [newSkills, setNewSkills] = useState();
   const [mySkills, setMySkills] = useState([]);
 
+  function handleAddNewSkills() {
+    setMySkills(oldState => [...oldState, ...newSkills]);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome, Cleyton</Text>
@@ -17,7 +21,7 @@ export function Home() {
         onChangeText={setNewSkills}
       />
 
-      <TouchableOpacity activeOpacity={0.8} style={styles.button}>
+      <TouchableOpacity onPress={handleAddNewSkills} activeOpacity={0.8} style={styles.button}>
         <Text style={styles.buttonText}>Add</Text>
       </TouchableOpacity>
 
