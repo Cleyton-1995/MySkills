@@ -21,11 +21,11 @@ export function Home() {
       />
 
       <Button onPress={handleAddNewSkills} />
-      
+
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
       {mySkills.map((skills) => (
-        <Card skills={skills} />
+        <Card key={skills} skills={skills} />
       ))}
     </View>
   );
