@@ -20,6 +20,12 @@ export function Home() {
     setMySkills((oldState) => [...oldState, data]);
   }
 
+  function handleRemoveSkills(id: string) {
+    setMySkills(oldState => oldState.filter(
+      skills => skills.id !== id
+    ))
+  }
+
   useEffect(() => {
     const currentHour = new Date().getHours();
 
@@ -52,7 +58,7 @@ export function Home() {
       <FlatList
         data={mySkills}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Card skills={item.name} />}
+        renderItem={({ item }) => <Card skills={item.name} onPress={() => handleRemoveSkills(item.id)} />}
       />
     </View>
   );
