@@ -25,7 +25,7 @@ export function Home() {
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
       {mySkills.map((skills) => (
-        <Card/>
+        <Card skills={skills} />
       ))}
     </View>
   );

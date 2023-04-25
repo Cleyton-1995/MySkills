@@ -1,14 +1,14 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 
-export function Card() {
+export function Card({skills}) {
   return (
     <TouchableOpacity
-      key="1"
+      key={skills}
       style={styles.buttonSkills}
       activeOpacity={0.8}
     >
-      <Text style={styles.textSkills}>skills</Text>
+      <Text style={styles.textSkills}>{skills}</Text>
     </TouchableOpacity>
   );
 }
