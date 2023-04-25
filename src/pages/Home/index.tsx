@@ -7,6 +7,11 @@ export function Home() {
   const [gretting, setGretting] = useState("");
 
   function handleAddNewSkills() {
+    const data = {
+      id: String(new Date().getTime()),
+      name: newSkills
+    }
+
     setMySkills((oldState) => [...oldState, newSkills]);
   }
 
