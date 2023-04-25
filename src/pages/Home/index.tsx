@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { TextInput, Platform, View, Text, FlatList } from "react-native";
 
+interface SkillData {
+  id: string;
+  name: string;
+}
+
 export function Home() {
   const [newSkills, setNewSkills] = useState("");
-  const [mySkills, setMySkills] = useState([]);
+  const [mySkills, setMySkills] = useState<SkillData[]>([]);
   const [gretting, setGretting] = useState("");
 
   function handleAddNewSkills() {
@@ -12,7 +17,7 @@ export function Home() {
       name: newSkills
     }
 
-    setMySkills((oldState) => [...oldState, newSkills]);
+    setMySkills((oldState) => [...oldState, data]);
   }
 
   useEffect(() => {
@@ -46,8 +51,8 @@ export function Home() {
 
       <FlatList
         data={mySkills}
-        keyExtractor={(item) => item}
-        renderItem={({ item }) => <Card skills={item} key={item} />}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Card skills={item.name} />}
       />
     </View>
   );
@@ -76,7 +81,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#1f1e25",
     color: "#fff",
     fontSize: 18,
-    padding: Platform.OS === "Windows" ? 10 : 15,
+    padding: Platform.OS === "windows" ? 10 : 15,
     marginTop: 30,
     borderRadius: 7,
   },
