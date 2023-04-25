@@ -21,14 +21,8 @@ export function Home() {
         onChangeText={setNewSkills}
       />
 
-      <TouchableOpacity
-        onPress={handleAddNewSkills}
-        activeOpacity={0.8}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableOpacity>
-
+      <Button/>
+      
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
       {mySkills.map((skills) => (
@@ -41,6 +35,7 @@ export function Home() {
 }
 
 import { StyleSheet } from "react-native";
+import { Button } from "../../components/Button";
 
 export const styles = StyleSheet.create({
   container: {
@@ -64,21 +59,6 @@ export const styles = StyleSheet.create({
     padding: Platform.OS === "Windows" ? 10 : 15,
     marginTop: 30,
     borderRadius: 7,
-  },
-
-  button: {
-    backgroundColor: "#a370f7",
-    padding: 15,
-    borderRadius: 7,
-    alignItems: "center",
-    marginTop: 20,
-  },
-
-  buttonText: {
-    color: "#fff",
-    fontSize: 17,
-    fontWeight: "bold",
-    width: 34,
   },
 
   buttonSkills: {
